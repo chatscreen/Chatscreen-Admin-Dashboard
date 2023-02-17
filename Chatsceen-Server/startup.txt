@@ -1,0 +1,20 @@
+make a .env file:
+PORT = 5000
+NODE_ENV = development
+MONGO_URI = mongodb://mongoadmin:secret@localhost:27888/?authSource=admin
+
+in ChatscrenServer run:
+docker.sh
+
+OR just run:
+docker run -d  --name chatscreen -p 27888:27017 -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+
+in ChatscrenServer run:
+npm start
+
+To connect to DadBod in MernRod,:
+while inside server directory, run 'DB' to enter DadBod ui
+'shift + a' to add a connection
+enter this as a uri, (same as above):
+mongodb://mongoadmin:secret@localhost:27888/?authSource=admin
+

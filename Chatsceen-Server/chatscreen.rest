@@ -1,0 +1,98 @@
+#'crtl + j' in mernrod to query
+
+
+# user register 
+http://localhost:5000/users
+POST 
+{
+  "name": "ash",
+  "email": "ash@email.com",
+  "password": "password"
+}
+
+# user login
+http://localhost:5000/users/login
+POST 
+{
+  "email": "ash@email.com",
+  "password": "password"
+}
+
+# get all users
+http://localhost:5000/users
+GET 
+
+# location register 
+http://localhost:5000/locations/register
+POST 
+{
+  "name": "maae",
+  "email": "dikdh@email.com",
+  "password": "password"
+}
+
+# location login
+http://localhost:5000/locations/login
+POST 
+{
+  "email": "newlocation@email.com",
+  "password": "password"
+}
+
+#locations
+# location get location data 
+http://localhost:5000
+
+#Accept: application/json
+#Content-Type: application/json
+
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjZlOWM3NzFiZjA2MWI0ZmViNDkwZiIsImlhdCI6MTY2NzY4ODkwMywiZXhwIjoxNjcwMjgwOTAzfQ.ixtUr4iVgyXwzY85KPF4kZdQySlY40D5a3qbYrtNRDU
+
+GET /locations/locationData
+{  
+  "_id": "6366e9c771bf061b4feb490f",
+  "email": "ash@email.com",
+  "password": "password"
+}
+
+#locations
+# location get location data 
+http://localhost:5000
+
+#Accept: application/json
+#Content-Type: application/json
+
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjZlOWM3NzFiZjA2MWI0ZmViNDkwZiIsImlhdCI6MTY2NzY4ODkwMywiZXhwIjoxNjcwMjgwOTAzfQ.ixtUr4iVgyXwzY85KPF4kZdQySlY40D5a3qbYrtNRDU
+
+GET /locations/locationData
+{  
+  "_id": "6366e9c771bf061b4feb490f",
+  "email": "ash@email.com",
+  "password": "password"
+}
+
+#get messages 
+http://localhost:5000/chat
+GET 
+{"_id": "6365e4e032c5f1d49e81b2e6"}
+
+# post chat
+http://localhost:5000
+
+Accept: application/json
+Content-Type: application/json
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjVmY2E2YzQ5OTlkNDc5MjM1MmQxYyIsImlhdCI6MTY2Nzg4NjQ0MywiZXhwIjoxNjcwNDc4NDQzfQ.aYJ8t-k9qQ_fQaISgrnWrBqRahzSyPVTpq1u10zNuaA
+
+POST /chat
+{
+  "id": "6365fca6c4999d4792352d1c",
+  "email": "newlocation@email.com",
+  "text": "ole",
+  "name": "rad"
+}
+
+
+
+
+
