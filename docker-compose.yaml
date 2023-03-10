@@ -1,34 +1,33 @@
 version: "3"
 services:
-  # client:
-  #   build:
-  #     context: ./client
-  #   ports:
-  #     - "3333:3000"
-  #   environment:
-  #     - REACT_APP_API_URL=http://localhost:5001/api
-  #   depends_on:
-  #     - server
-  #   volumes:
-  #     - ./client:/app/
-  #     - /app/node_modules
-  # server:
-  #   build:
-  #     context: ./server
-  #   ports:
-  #     - "5001:5001"
-  #   environment:
-  #     - PGDATABASE=postgres
-  #     - PGHOST=db
-  #   volumes:
-  #     - ./server:/app/
-  #     - /app/node_modules
-  database:
+  client:
     build:
-      context: ./Chatscreen-Database
-    volumes:
-      - ashs-todo-volume:/var/lib/postgresql/data
+      context: ./client
     ports:
-      - "5433:5432"
+      - "3000:3000"
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app/
+      - /app/node_modules
+  server:
+    build:
+      context: ./server
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on:
+      - database
+    volumes:
+      - ./server:/app/
+      - /app/node_modules
+  database:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      # - ./db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - mongodb:/data/db
 volumes:
-  ashs-todo-volume:
+  mongodb:

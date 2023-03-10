@@ -1,1 +1,0 @@
-db.chats.find().pretty();

@@ -1,1 +1,0 @@
-db.locations.find().pretty();
