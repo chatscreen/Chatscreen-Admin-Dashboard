@@ -1,15 +1,19 @@
 const asyncHandler = require("express-async-handler");
-const dummyUsers = require("../utils/dummyData");
 
 const Chat = require("../models/chatModel");
+// Define the database URL to connect to.
+// returns all stories that have Bob's id as their author.
+
 const Location = require("../models/locationModel");
 //instead of try catch, I'm wrapping everything in express-async-handler
 
 const getMessages = asyncHandler(async (req, res) => {
   // res.json(dummyUsers);
-  const chat = dummyUsers; //temporary until I load up the db
+  const chat = await Chat.find();
+  // const chat = dummyUsers; //temporary until I load up the db
   // const chat = await Chat.find();
-  console.log(chat);
+  // console.log(test);
+  // console.log(chat);
   res.status(200).json(chat);
 });
 

@@ -15,7 +15,6 @@ const locationSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add a password"],
     },
-    chat: [],
   },
   { timestamps: true }
 );
