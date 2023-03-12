@@ -8,12 +8,7 @@ const Location = require("../models/locationModel");
 //instead of try catch, I'm wrapping everything in express-async-handler
 
 const getMessages = asyncHandler(async (req, res) => {
-  // res.json(dummyUsers);
   const chat = await Chat.find();
-  // const chat = dummyUsers; //temporary until I load up the db
-  // const chat = await Chat.find();
-  // console.log(test);
-  // console.log(chat);
   res.status(200).json(chat);
 });
 
@@ -22,8 +17,6 @@ const createMessage = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Please provide a text");
   }
-  //const location = await Location.findById(req.params.id);
-  //const id = await Location.find({ _id: req.params.id });
 
   const message = {
     message: {

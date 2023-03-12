@@ -19,6 +19,7 @@ const ActiveUsers = () => {
         let response = await fetch("http://localhost:5000/users/");
         let data = await response.json();
         setUserData(data);
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -29,11 +30,7 @@ const ActiveUsers = () => {
   return (
     <ChatUsers style={{ display: "flex" }}>
       {userData.map((user) => (
-        <UserImg
-          key={user._id}
-          src={`http://localhost:5000/images/userImages/${user.profileImage}`}
-          alt={"user"}
-        />
+        <UserImg key={user._id} src={user.image} alt={"user"} />
       ))}
       <ViewAllContainer>
         <UserCount>

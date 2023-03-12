@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
+const Chat = require("../models/chatModel");
 
 const path = require("path");
 const multer = require("multer");
@@ -120,7 +121,7 @@ const generateToken = (id) => {
 const getUsers = asyncHandler(async (req, res) => {
   //res.json(dummyUsers);
   //const chat = dummyUsers; //temporary until I load up the db
-  const users = await User.find();
+  const users = await Chat.find();
   res.status(200).json(users);
 });
 
