@@ -119,8 +119,6 @@ const generateToken = (id) => {
 
 //get all users
 const getUsers = asyncHandler(async (req, res) => {
-  //res.json(dummyUsers);
-  //const chat = dummyUsers; //temporary until I load up the db
   const users = await Chat.find();
   res.status(200).json(users);
 });

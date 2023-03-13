@@ -31,8 +31,6 @@ const InputMessage = (props) => {
     socket.emit("custom-event", {
       message: message,
       name: "Admin",
-      // this is a placehoder for additional info
-      //locationId: "my location id",
     });
   };
 

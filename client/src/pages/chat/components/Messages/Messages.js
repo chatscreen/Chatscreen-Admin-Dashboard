@@ -22,11 +22,6 @@ import {
 
 const socket = io("http://localhost:5001");
 
-// // eventually, this data recieved will be the updated chat data
-// socket.on("recieve-message", (message) => {
-//   alert(message);
-// });
-
 const Messages = () => {
   const messagesEndRef = useRef(null);
   const scrollToBottom = () => {

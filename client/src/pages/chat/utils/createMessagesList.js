@@ -14,7 +14,7 @@ const createMessagesList = (result) => {
   }
 
   const sortByTime = messagesList.sort((a, b) => {
-    if (a.timestamp > b.timestamp) {
+    if (b.timestamp > a.timestamp) {
       return -1;
     } else {
       return 1;
