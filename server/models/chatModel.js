@@ -2,25 +2,25 @@ const mongoose = require("mongoose");
 
 const chatSchema = mongoose.Schema({
   // needs to match the collection spun up in the database during docker compose
-  message: {
-    name: {
-      type: "string",
-      required: [true, "Please add a text value"],
-    },
-    text: {
+  mesages: {
+    // name: {
+    //   type: "string",
+    //   required: [true, "Please add a text value"],
+    // },
+    message: {
       type: "string",
       required: [true, "Please add a text value"],
     },
 
-    email: {
-      type: "string",
-      required: [true, "Please add a text value"],
-    },
-    id: {
-      type: "string",
-      required: [true, "Please add a text value"],
-    },
-    time: { type: Number, default: new Date().getTime() },
+    // email: {
+    //   type: "string",
+    //   required: [true, "Please add a text value"],
+    // },
+    // id: {
+    //   type: "string",
+    //   required: [true, "Please add a text value"],
+    // },
+    timestamp: { type: "string", default: new Date().getTime() },
   },
 });
 

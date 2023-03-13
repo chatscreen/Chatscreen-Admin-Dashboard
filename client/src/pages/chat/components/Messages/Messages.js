@@ -22,10 +22,10 @@ import {
 
 const socket = io("http://localhost:5001");
 
-// eventually, this data recieved will be the updated chat data
-socket.on("recieve-message", (message) => {
-  alert(message);
-});
+// // eventually, this data recieved will be the updated chat data
+// socket.on("recieve-message", (message) => {
+//   alert(message);
+// });
 
 const Messages = () => {
   const messagesEndRef = useRef(null);
@@ -50,9 +50,24 @@ const Messages = () => {
     fetchData();
   };
 
+  // eventually, this data recieved will be the updated chat data
+  socket.on("recieve-message", (message) => {
+    const fetchData = async () => {
+      try {
+        let response = await fetch("http://localhost:5000/chat");
+        let data = await response.json();
+        setMessageData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  });
+
   useEffect(getUsers, []);
 
   const sortedMessages = createMessagesList(messageData);
+  // console.log(messageData);
   useEffect(scrollToBottom, [sortedMessages]);
 
   return (

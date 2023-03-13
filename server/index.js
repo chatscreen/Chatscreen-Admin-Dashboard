@@ -9,9 +9,11 @@ connectDB();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const io = require("socket.io")(5001, {
-  cors: { origin: "http://localhost:3000" },
-});
+// moved this to chat controller
+
+// const io = require("socket.io")(5001, {
+//   cors: { origin: "http://localhost:3000" },
+// });
 
 const app = express();
 
@@ -25,13 +27,13 @@ app.use(
   express.static(path.join("images", "userImages"))
 );
 
-io.on("connection", (socket) => {
-  console.log(socket.id);
-  socket.on("custom-event", (message) => {
-    console.log(message);
-    io.emit("recieve-message", "hi");
-  });
-});
+// io.on("connection", (socket) => {
+//   console.log(socket.id);
+//   socket.on("custom-event", (message) => {
+//     console.log(message);
+//     io.emit("recieve-message", "hi");
+//   });
+// });
 
 app.use("/chat", require("./routes/chatRoutes"));
 app.use("/locations", require("./routes/locationRoutes"));
