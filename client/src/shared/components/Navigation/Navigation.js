@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faBan, faQrcode } from "@fortawesome/free-solid-svg-icons";
 
 //logo (kfc placeholder)
-import KFC_Logo from "../../../images/1200px-KFC_Logo.svg.png";
+import KFC_Logo from "../../../images/ChatscreenLogo.png";
 
 //styled elements
 import {

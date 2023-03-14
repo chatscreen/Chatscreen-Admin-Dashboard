@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 //dummy location profile image
-import LocationImage from "../../../images/KFC-logo.png";
+import LocationImage from "../../../images/BarProfile.png";
 
 import {
   DropDownContainer,
@@ -71,8 +71,8 @@ function Chat() {
       <div className="info-box-wrapper">
         <DropDownContainer>
           <DropDownHeader onClick={toggle}>
-            <ProfieImage src={LocationImage} />
-            <UserName>KFC North Dunedin</UserName>
+            {/* <ProfieImage src={LocationImage} /> */}
+            <UserName>Settings</UserName>
             <IconContainer>
               {showInfo1 ? (
                 <FontAwesomeIcon icon={faAngleUp}></FontAwesomeIcon>
