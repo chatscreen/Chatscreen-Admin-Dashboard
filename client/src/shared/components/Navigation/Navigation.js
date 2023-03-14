@@ -21,7 +21,7 @@ import {
 const Navigation = () => {
   return (
     <Nav>
-      <Logo src={KFC_Logo} alt="logo" />
+      {/* <Logo src={KFC_Logo} alt="logo" /> */}
       <NavItems>
         <NavItem>
           <NavLink to="/">
