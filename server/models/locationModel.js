@@ -1,22 +1,11 @@
 const mongoose = require("mongoose");
 
-const locationSchema = mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: [true, "Please add a name"],
-    },
-    email: {
-      type: String,
-      required: [true, "Please add an email"],
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: [true, "Please add a password"],
-    },
+const locationSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Please add a name"],
   },
-  { timestamps: true }
-);
+  // there will be a bunch of other stuff in here also, like config, images, metadata for phone apps location info etc.
+});
 
 module.exports = mongoose.model("Location", locationSchema);
