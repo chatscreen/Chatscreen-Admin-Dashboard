@@ -9,7 +9,6 @@ const chatSchema = mongoose.Schema({
     ref: "User",
     required: true,
   },
-  // this default type of string is probably incorrect and may also need to be rounded down
   timestamp: { type: Date, default: Date.now },
 });
 

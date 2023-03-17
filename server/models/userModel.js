@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const userSchema = new mongoose.Schema({
   // in the mobile app, if the users name is already taken in a chat, there will be an option for them to choose another name
   username: {
