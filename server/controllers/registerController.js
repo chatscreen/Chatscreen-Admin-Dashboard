@@ -1,8 +1,8 @@
-const User = require("../model/User");
+const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
 const handleNewUser = async (req, res) => {
-  const { user, pwd } = req.body;
+  const { user, pwd, email } = req.body;
   if (!user || !pwd)
     return res
       .status(400)
