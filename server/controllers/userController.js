@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
 
-const Chat = require("../models/chatModel");
+const Users = require("../models/userModel");
 
 //multer for user profile image storage
 
@@ -12,7 +12,7 @@ const Chat = require("../models/chatModel");
 
 //get all users
 const getUsers = asyncHandler(async (req, res) => {
-  const users = await Chat.find();
+  const users = await Users.find();
   res.status(200).json(users);
 });
 
