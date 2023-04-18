@@ -12,18 +12,3 @@ export const ChatTitle = styled.h1`
   font-weight: 300;
   padding-bottom: 10px;
 `;
-
-export const Div1 = styled.nav`
-  background-color: #000000;
-  height: 90px;
-  align-items: center;
-  display: flex;
-  align-content: space-between;
-`;
-
-export const Div2 = styled.nav`
-  background-color: #fff;
-  padding: 20px;
-  align-items: center;
-  margin: 10px;
-`;

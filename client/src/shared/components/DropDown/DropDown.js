@@ -21,7 +21,7 @@ import {
 
 export function InfoBox(props) {
   const ref = useRef(null);
-  const { onClickOutside } = props;
+  const { onClickOutside, setAuth } = props;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -37,31 +37,33 @@ export function InfoBox(props) {
 
   if (!props.show) return null;
 
+  const setAuthFalse = () => {
+    setAuth(false);
+  };
+
   return (
     <div ref={ref} className="info-box">
       {/*{props.message}*/}
       <DropDownList>
         <ListItem>
-          <NavLink to="/profile" onClick={props.onClickOutside}>
+          <NavLink to="/profile" onClick={onClickOutside}>
             Edit profile
           </NavLink>
         </ListItem>
         <ListItem>
-          <NavLink to="/about" onClick={props.onClickOutside}>
+          <NavLink to="/about" onClick={onClickOutside}>
             Terms of use & Privacy
           </NavLink>
         </ListItem>
         <ListItem>
-          <NavLink to="/login" onClick={props.onClickOutside}>
-            Log Out
-          </NavLink>
+          <NavLink onClick={setAuthFalse}>Log Out</NavLink>
         </ListItem>
       </DropDownList>
     </div>
   );
 }
 
-function Chat() {
+function Chat({ setAuth }) {
   let [showInfo1, setShowInfo1] = useState(false);
   const toggle = () => {
     setShowInfo1(!showInfo1);
@@ -83,6 +85,7 @@ function Chat() {
           </DropDownHeader>
         </DropDownContainer>
         <InfoBox
+          setAuth={setAuth}
           show={showInfo1}
           onClickOutside={() => {
             setShowInfo1(false);

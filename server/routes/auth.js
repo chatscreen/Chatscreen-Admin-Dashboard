@@ -1,7 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const authController = require('../controllers/authController');
+const verifyJWT = require("../middleware/verifyJWT");
+const verifyRoles = require("../middleware/verifyRoles");
+const { verifyAdmin } = require("../controllers/authController");
+const { handleLogin } = require("../controllers/authController");
 
-router.post('/', authController.handleLogin);
+router.post("/", handleLogin);
+
+router.post("/adminVerify", verifyJWT, verifyRoles, verifyAdmin);
 
 module.exports = router;

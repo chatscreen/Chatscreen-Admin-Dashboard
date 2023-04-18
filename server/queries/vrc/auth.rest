@@ -6,17 +6,17 @@ Accept: application/json
 Content-Type: application/json
 POST /register
 {
-  "user":"ash",
+  "user":"Gandalf",
   "pwd":"helloimcool"
 }
 
 #login user
 http://localhost:5000
-accept: application/json
+Accept: application/json
 Content-Type: application/json
 POST /auth
 {
-  "user":"ash",
+  "user":"Gandalf",
   "pwd":"helloimcool"
 }
 

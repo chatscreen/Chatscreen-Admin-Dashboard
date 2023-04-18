@@ -1,1 +1,1 @@
-db.getCollection("chats").find({}).pretty();
+db.getCollection("chat").find({}).pretty();
