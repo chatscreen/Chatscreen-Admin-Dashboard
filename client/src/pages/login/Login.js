@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 
+import {
+  LoginContainer,
+  StyledForm,
+  StyledInput,
+  StyledButton,
+  StyledAlert,
+  StyledLabel,
+} from "./LoginElements";
+
 const Login = ({ setAuth }) => {
+  const [passwordInvalid, setPasswordInvalid] = useState(true);
+  const [userInvalid, setUserInvalid] = useState(true);
   const [inputs, setInputs] = useState({
     user: "",
     pwd: "",
@@ -30,38 +41,40 @@ const Login = ({ setAuth }) => {
       if (parseRes.roles.includes(5150)) {
         setAuth(true);
       }
+      if (!parseRes.roles.includes(5150)) {
+        setUserInvalid(false);
+      }
+      setPasswordInvalid(true);
     } catch (err) {
       console.error(err.message);
+      setPasswordInvalid(false);
     }
   };
 
   return (
-    <div>
-      <div>
-        <h1>Admin Dashboard</h1>
-        <form>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="user"
-              value={user}
-              onChange={(e) => onChange(e)}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="text"
-              name="pwd"
-              value={pwd}
-              onChange={(e) => onChange(e)}
-            />
-          </label>
-          <input type="submit" value="Submit" onClick={onSubmitForm} />
-        </form>
-      </div>
-    </div>
+    <StyledForm onSubmit={onSubmitForm}>
+      <StyledLabel>Username:</StyledLabel>
+      <StyledInput
+        type="text"
+        name="user"
+        value={user}
+        onChange={(e) => onChange(e)}
+      />
+      <StyledLabel invalid={!passwordInvalid}>Password:</StyledLabel>
+      <StyledInput
+        type="password"
+        name="pwd"
+        value={pwd}
+        onChange={(e) => onChange(e)}
+      />
+      {!passwordInvalid && <StyledAlert>Password is invalid.</StyledAlert>}
+      {!userInvalid && (
+        <StyledAlert>User must have Admin Privelages.</StyledAlert>
+      )}
+      <StyledButton type="submit" disabled={!user || !pwd}>
+        Login
+      </StyledButton>
+    </StyledForm>
   );
 };
 
