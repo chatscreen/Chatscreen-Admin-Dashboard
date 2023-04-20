@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
 import {
   LoginContainer,
+  Logo,
+  LoginTitle,
   StyledForm,
   StyledInput,
   StyledButton,
   StyledAlert,
   StyledLabel,
+  Input,
+  InputImage,
+  Alerts,
 } from "./LoginElements";
 
 const Login = ({ setAuth }) => {
@@ -52,29 +59,53 @@ const Login = ({ setAuth }) => {
   };
 
   return (
-    <StyledForm onSubmit={onSubmitForm}>
-      <StyledLabel>Username:</StyledLabel>
-      <StyledInput
-        type="text"
-        name="user"
-        value={user}
-        onChange={(e) => onChange(e)}
-      />
-      <StyledLabel invalid={!passwordInvalid}>Password:</StyledLabel>
-      <StyledInput
-        type="password"
-        name="pwd"
-        value={pwd}
-        onChange={(e) => onChange(e)}
-      />
-      {!passwordInvalid && <StyledAlert>Password is invalid.</StyledAlert>}
-      {!userInvalid && (
-        <StyledAlert>User must have Admin Privelages.</StyledAlert>
-      )}
-      <StyledButton type="submit" disabled={!user || !pwd}>
-        Login
-      </StyledButton>
-    </StyledForm>
+    <LoginContainer>
+      <StyledForm onSubmit={onSubmitForm}>
+        <Logo>Chat Screen</Logo>
+        <LoginTitle>Admin Dashboard</LoginTitle>
+        <Input>
+          <StyledLabel>Username</StyledLabel>
+          <StyledInput
+            type="text"
+            name="user"
+            value={user}
+            onChange={(e) => onChange(e)}
+          />
+          <InputImage>
+            <FontAwesomeIcon
+              style={{ height: "100%" }}
+              icon={faUser}
+              color={"#a9b0be"}
+            ></FontAwesomeIcon>
+          </InputImage>
+        </Input>
+        <Input>
+          <StyledLabel invalid={!passwordInvalid}>Password</StyledLabel>
+          <StyledInput
+            type="password"
+            name="pwd"
+            value={pwd}
+            onChange={(e) => onChange(e)}
+          />
+          <InputImage>
+            <FontAwesomeIcon
+              style={{ height: "100%" }}
+              icon={faLock}
+              color={"#a9b0be"}
+            ></FontAwesomeIcon>
+          </InputImage>
+        </Input>
+        <Alerts>
+          {!passwordInvalid && <StyledAlert>Password is invalid.</StyledAlert>}
+          {!userInvalid && (
+            <StyledAlert>User must have Admin Privelages.</StyledAlert>
+          )}
+        </Alerts>
+        <StyledButton type="submit" disabled={!user || !pwd}>
+          LOGIN
+        </StyledButton>
+      </StyledForm>
+    </LoginContainer>
   );
 };
 
