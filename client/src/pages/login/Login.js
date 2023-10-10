@@ -45,9 +45,6 @@ const Login = ({ setAuth }) => {
 
       const parseRes = await response.json();
 
-      //logging parseRes
-      console.log(parseRes);
-
       localStorage.setItem("token", parseRes.accessToken);
       if (parseRes.roles.includes(5150)) {
         setAuth(true);

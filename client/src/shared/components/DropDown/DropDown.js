@@ -38,9 +38,9 @@ export function InfoBox(props) {
   if (!props.show) return null;
 
   const setAuthFalse = () => {
-    // this works fuck off
+    // this works dont touch
     setAuth(false);
-    localStorage.clear();
+    localStorage.removeItem("token");
   };
 
   return (

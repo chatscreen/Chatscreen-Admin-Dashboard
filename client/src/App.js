@@ -20,30 +20,28 @@ import DropDown from "./shared/components/DropDown/DropDown";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   };
 
   async function isAuth() {
-    console.log("running isauth");
     try {
       const response = await fetch("http://localhost:5000/auth/adminVerify", {
-        method: "GET",
+        method: "POST",
         headers: { token: localStorage.token },
       });
-
-      const parseRes = await response.json();
-      console.log(parseRes);
-      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+      let isAdmin = await response.json(); // Wait for the response to be resolved
+      if (isAdmin.isAuthenticated == true) {
+        setIsAuthenticated(true);
+      }
     } catch (err) {
-      console.error(err.message);
+      console.log(err);
     }
   }
 
   useEffect(() => {
     isAuth();
-  });
+  }, [setIsAuthenticated]);
 
   return (
     <div>

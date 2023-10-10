@@ -7,6 +7,7 @@ const { handleLogin } = require("../controllers/authController");
 
 router.post("/", handleLogin);
 
-router.post("/adminVerify", verifyJWT, verifyRoles, verifyAdmin);
+//router.post("/adminVerify", verifyRoles, verifyAdmin);
+router.post("/adminVerify", verifyAdmin);
 
 module.exports = router;
