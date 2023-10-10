@@ -38,7 +38,9 @@ export function InfoBox(props) {
   if (!props.show) return null;
 
   const setAuthFalse = () => {
+    // this works fuck off
     setAuth(false);
+    localStorage.clear();
   };
 
   return (
@@ -56,7 +58,13 @@ export function InfoBox(props) {
           </NavLink>
         </ListItem>
         <ListItem>
-          <NavLink onClick={setAuthFalse}>Log Out</NavLink>
+          <NavLink
+            onClick={() => {
+              setAuthFalse();
+            }}
+          >
+            Log Out
+          </NavLink>
         </ListItem>
       </DropDownList>
     </div>
