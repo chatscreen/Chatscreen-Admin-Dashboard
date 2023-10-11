@@ -51,6 +51,7 @@ const Messages = () => {
       try {
         let response = await fetch("http://localhost:5000/chat");
         let data = await response.json();
+        console.log(data);
         setMessageData(data);
       } catch (error) {
         console.log(error);
