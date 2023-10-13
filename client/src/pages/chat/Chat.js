@@ -30,6 +30,7 @@ const Chat = () => {
         <ActiveUsers users={userData} />
       </ChatHeader>
       <Messages users={userData} />
+      <InputMessage />
     </ChatContainer>
   );
 };

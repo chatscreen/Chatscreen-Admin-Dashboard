@@ -10,6 +10,7 @@ import {
 } from "./ActiveUsersElements";
 
 const ActiveUsers = ({ users }) => {
+  console.log(users);
   return (
     <ChatUsers style={{ display: "flex" }}>
       {users.slice(0, 11).map((user) => (

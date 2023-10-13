@@ -61,9 +61,7 @@ const Messages = ({ users }) => {
 
   useEffect(getChat, []);
 
-  console.log(messageData);
-
-  const sortedMessages = createMessagesList(messageData, users);
+  const sortedMessages = createMessagesList(users, messageData);
 
   useEffect(scrollToBottom, [sortedMessages]);
 
@@ -76,7 +74,7 @@ const Messages = ({ users }) => {
             <SpeechBubble>
               <SpeechBubbleTriangle />
               <NameText>{message.name}</NameText>
-              <MessageText>{message.message.message}</MessageText>
+              <MessageText>{message.message}</MessageText>
             </SpeechBubble>
             <CountEllipsis>...</CountEllipsis>
           </Message>
@@ -87,7 +85,7 @@ const Messages = ({ users }) => {
               <AdminSpeechBubble>
                 <AdminSpeechBubbleTriangle />
                 <AdminNameText>{message.name}</AdminNameText>
-                <AdminMessageText>{message.message.message}</AdminMessageText>
+                <AdminMessageText>{message.message}</AdminMessageText>
               </AdminSpeechBubble>
             </AdminMessage>
           </div>
