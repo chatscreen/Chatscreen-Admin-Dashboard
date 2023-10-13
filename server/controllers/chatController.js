@@ -4,6 +4,8 @@ const Messages = require("../models/chatModel");
 const getMessages = async (req, res) => {
   try {
     const chat = await Messages.find();
+    console.log("hi from chat route");
+    console.log(chat);
     res.status(200).json(chat);
   } catch (error) {
     console.log(error.message);
@@ -14,7 +16,6 @@ const getMessages = async (req, res) => {
 const createMessage = async (req, res) => {
   try {
     const { sender, text } = req.body;
-    console.log(req.body);
     const sentMessage = await Messages.create({
       text,
       sender,

@@ -31,7 +31,7 @@ const App = () => {
         headers: { token: localStorage.token },
       });
       let isAdmin = await response.json(); // Wait for the response to be resolved
-      if (isAdmin.isAuthenticated == true) {
+      if (isAdmin.isAuthenticated === true) {
         setIsAuthenticated(true);
       }
     } catch (err) {

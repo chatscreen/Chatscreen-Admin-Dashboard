@@ -19,6 +19,7 @@ const ActiveUsers = () => {
         let response = await fetch("http://localhost:5000/users/");
         let data = await response.json();
         console.log(data);
+        console.log("hi from fetch uses");
         setUserData(data);
       } catch (error) {
         console.log(error);
