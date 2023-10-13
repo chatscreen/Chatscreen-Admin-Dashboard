@@ -12,9 +12,8 @@ const Users = require("../models/userModel");
 
 //get all users
 const getUsers = asyncHandler(async (req, res) => {
-  console.log("hi from users controller");
   const users = await Users.find();
-  res.status(200).json(users);
+  res.status(200).json({ users });
 });
 
 module.exports = { getUsers };

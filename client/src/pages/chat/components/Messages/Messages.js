@@ -20,9 +20,9 @@ import {
   AdminMessageText,
 } from "./MessageElements";
 
-const socket = io("http://localhost:5001");
+//const socket = io("http://localhost:5001");
 
-const Messages = () => {
+const Messages = ({ users }) => {
   const messagesEndRef = useRef(null);
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({
@@ -32,7 +32,7 @@ const Messages = () => {
 
   const [messageData, setMessageData] = useState([]);
 
-  const getUsers = () => {
+  const getChat = () => {
     const fetchData = async () => {
       try {
         let response = await fetch("http://localhost:5000/chat");
@@ -46,24 +46,25 @@ const Messages = () => {
   };
 
   // eventually, this data recieved will be the updated chat data
-  socket.on("recieve-message", (message) => {
-    const fetchData = async () => {
-      try {
-        let response = await fetch("http://localhost:5000/chat");
-        let data = await response.json();
-        console.log(data);
-        setMessageData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  });
+  //socket.on("recieve-message", (message) => {
+  //const fetchData = async () => {
+  //try {
+  //let response = await fetch("http://localhost:5000/chat");
+  //let data = await response.json();
+  //setMessageData(data.data);
+  //} catch (error) {
+  //console.log(error);
+  //}
+  //};
+  //fetchData();
+  //});
 
-  useEffect(getUsers, []);
+  useEffect(getChat, []);
 
-  const sortedMessages = createMessagesList(messageData);
-  // console.log(messageData);
+  console.log(messageData);
+
+  const sortedMessages = createMessagesList(messageData, users);
+
   useEffect(scrollToBottom, [sortedMessages]);
 
   return (

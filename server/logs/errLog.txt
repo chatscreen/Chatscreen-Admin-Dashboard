@@ -57,3 +57,28 @@
 20231010	10:27:17	e302164a-eadf-428f-af9e-e030cf66c546	TypeError: Cannot read properties of undefined (reading 'split')
 20231010	10:27:17	f9ba7830-90d8-49d8-89e9-0777d1ffe766	TypeError: Cannot read properties of undefined (reading 'split')
 20231010	10:27:17	70e27cbb-1250-40ef-82d8-38eb05f5fab1	TypeError: Cannot read properties of undefined (reading 'split')
+20231013	06:15:32	19623e12-4d62-4cfe-8ed9-3a37f5d34d9e	ReferenceError: data is not defined
+20231013	06:15:32	d2088ee5-1dcc-44ed-a815-23d826ac48c8	ReferenceError: data is not defined
+20231013	06:15:39	dca2ffca-a1a7-4cb9-8978-fad1b0ce5602	ReferenceError: data is not defined
+20231013	06:15:39	61bf4442-03ad-44d2-bbe2-71deabc72a19	ReferenceError: data is not defined
+20231013	06:16:51	fd985d40-e346-4cee-988c-01d7ca218e02	ReferenceError: data is not defined
+20231013	06:16:51	c9c33499-2a53-4b10-8c9b-8426f521f05a	ReferenceError: data is not defined
+20231013	06:17:14	0248d00f-4506-45c8-8a6d-abb8d0eca165	ReferenceError: data is not defined
+20231013	06:17:14	e71ec170-4ad1-4029-a18f-a0654684cfd7	ReferenceError: data is not defined
+20231013	06:17:30	f1985d3d-0a2a-4f83-99bf-89a1f6dd4221	ReferenceError: data is not defined
+20231013	06:17:30	d0a9a50e-70a5-4deb-b112-808db3785040	ReferenceError: data is not defined
+20231013	06:17:38	11f93430-363b-4bae-9cc8-947d4ed239c0	ReferenceError: data is not defined
+20231013	06:17:38	8ad9072e-469c-4784-814c-0e58ce644153	ReferenceError: data is not defined
+20231013	06:17:45	556c8b54-8424-4738-87cb-b76de520bf67	ReferenceError: data is not defined
+20231013	06:17:45	d402de22-934f-4dcc-a375-cf36a5c9b788	ReferenceError: data is not defined
+20231013	06:18:14	c76342c4-4037-4077-8485-d3f54c02c448	ReferenceError: data is not defined
+20231013	06:23:24	5e4e69f5-4bbd-43f8-82ea-54e7aca4bea1	ReferenceError: data is not defined
+20231013	06:23:24	c1739c0b-64c5-4022-806d-e2fddb80771e	ReferenceError: data is not defined
+20231013	06:23:36	40f798fb-b4f4-4360-aaf2-692306b6db57	ReferenceError: data is not defined
+20231013	06:23:54	66e0f599-ca28-46f5-b268-b14ca7136c3b	ReferenceError: data is not defined
+20231013	06:23:54	9b975be9-90b6-4388-a7c8-e4ca034cbe0c	ReferenceError: data is not defined
+20231013	06:24:10	0c188e0c-1e32-4ae1-afc3-54be16bd3aa8	ReferenceError: data is not defined
+20231013	06:24:12	bc59c3e5-84c7-47b2-91a5-45965c7b61fa	ReferenceError: data is not defined
+20231013	06:24:16	e3b29dec-d6ad-46c3-a997-e8ffbe95d1f3	ReferenceError: data is not defined
+20231013	06:24:17	af3fdbf4-29f3-4313-913b-8617c3f3dd3b	ReferenceError: data is not defined
+20231013	06:24:17	d62178cd-b022-4b3c-9767-261c3763104f	ReferenceError: data is not defined

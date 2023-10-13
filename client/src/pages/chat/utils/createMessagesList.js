@@ -1,16 +1,14 @@
-const createMessagesList = (result) => {
+const createMessagesList = (messageData, users) => {
+  // need to fetch all user images from server
+
   let messagesList = [];
-  for (let i = 0; i < result.length; i++) {
-    let userName = result[i].name;
-    let profileImg = result[i].image;
-    for (let j = 0; j < result[i].mesages.length; j++) {
-      messagesList.push({
-        name: userName,
-        message: result[i].mesages[j],
-        timestamp: result[i].mesages[j].timestamp,
-        profileImg: profileImg,
-      });
-    }
+  for (let i = 0; i < messageData.length; i++) {
+    messagesList.push({
+      name: "bob",
+      message: "hi im cool",
+      timestamp: "2398394",
+      profileImg: "https://randomuser.me/api/portraits/men/99.jpg",
+    });
   }
 
   const sortByTime = messagesList.sort((a, b) => {

@@ -1,4 +1,5 @@
 print("mongo init start --------------------");
+db = db.getSiblingDB("mydatabase"); // Specify the database name here
 
 // put dummy data in separate files for better housekeeping
 
@@ -6,7 +7,7 @@ db.createCollection("locations");
 db.createCollection("chats");
 db.createCollection("users");
 
-db.chat.insert([
+db.chats.insert([
   {
     _id: ObjectId("643c52af082d9b368ab97a65"),
     text: "hi im cool",
@@ -136,7 +137,7 @@ db.users.insert([
     username: "Jordan",
     password: "$2b$10$4NHctUtIESEOjOtg6obVw.yV2lOdd.FdVKBU2w4udKgI3Znvkifga",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/39.jpg",
   },
   {
     roles: {
@@ -146,7 +147,7 @@ db.users.insert([
     username: "Nole",
     password: "$2b$10$GFKrvpjvWpSRsgS.xbWdVex30YtZVXJhMGhoJl.9qNJV1tdm5Zkkq",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/79.jpg",
   },
   {
     roles: {
@@ -156,7 +157,7 @@ db.users.insert([
     username: "Brian",
     password: "$2b$10$bIcO3VoDmA6xPfOlRZqp4.1mjYe/rbFjnzc2uuDYOLhGvbosh.QDS",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/99.jpg",
   },
   {
     roles: {
@@ -166,7 +167,7 @@ db.users.insert([
     username: "Melonie",
     password: "$2b$10$NlhAHMvaMYZjc1h6DABqlO1bCSxmbTEeX.zt9s2kDBQoVrBU6gmrq",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/women/99.jpg",
   },
   {
     roles: {
@@ -176,7 +177,7 @@ db.users.insert([
     username: "Sasha",
     password: "$2b$10$U29RnfqR2E2e4oKwkVUyW.E/j8.JcKui4VYFfMpz7VZQvQ0npY94e",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/women/99.jpg",
   },
   {
     roles: {
@@ -186,7 +187,7 @@ db.users.insert([
     username: "Joseph",
     password: "$2b$10$hkssIDmg0K0G8cijxXDFaeZw/aRkC.AblnjypTHbq6979nDPLn.QS",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/99.jpg",
   },
   {
     roles: {
@@ -196,7 +197,7 @@ db.users.insert([
     username: "Vaugn",
     password: "$2b$10$/iVvt42afYpjyU3CDI4teOTzIdDpAJSY5KCECPJbdQzi3VZIyJb2u",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/83.jpg",
   },
   {
     roles: {
@@ -206,7 +207,7 @@ db.users.insert([
     username: "Kelly",
     password: "$2b$10$Z5y.upVKbyDzB8oZKqw5t.2q43M28oJae3kw.FKOSErwoWER/xLim",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/women/83.jpg",
   },
   {
     roles: {
@@ -216,7 +217,7 @@ db.users.insert([
     username: "Ken",
     password: "$2b$10$cCNTm7wVHlvapAc7N4jR9uPJb641e2hriJqZ3.lygSfvlukc2ydP6",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/89.jpg",
   },
   {
     roles: {
@@ -226,7 +227,7 @@ db.users.insert([
     username: "Sophie",
     password: "$2b$10$ODGgM3p3/DGZofkgMEj6.u46t8xyW6KR557babDmzILvLly0KEgJW",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/women/89.jpg",
   },
   {
     roles: {
@@ -236,7 +237,7 @@ db.users.insert([
     username: "Sam",
     password: "$2b$10$HgUvZespQ.KYzgH/yjbgAeXEVVZulL4WR/iGSKC1dsOd.SfyWJDre",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/women/19.jpg",
   },
   {
     roles: {
@@ -246,7 +247,7 @@ db.users.insert([
     username: "Ryan",
     password: "$2b$10$1yN01hdp708imBlHC3nmxeES4fwWzGGZTAR5Y2x1Sxiq/ve1vqvla",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/19.jpg",
   },
   {
     roles: {
@@ -256,7 +257,7 @@ db.users.insert([
     username: "Robert",
     password: "$2b$10$2H7jUdc0zVWWG3Dq8R2/LOfGPeHZWDaXjI4PL6qDx/1Qd5s.kTjGK",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/59.jpg",
   },
   {
     roles: {
@@ -266,7 +267,7 @@ db.users.insert([
     username: "Daniel",
     password: "$2b$10$3BFOgUZJUJk/fmvstD2iTe6ctlpYDbQcV6RbiwYLfUqmar54JWzgy",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/52.jpg",
   },
   {
     roles: {
@@ -276,7 +277,7 @@ db.users.insert([
     username: "Chris",
     password: "$2b$10$TC432TXDeZGVLgc3DwePnOgQP9Ys92NYKaaf0VnFbUO9v.FkCp2gW",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/45.jpg",
   },
   {
     roles: {
@@ -286,7 +287,7 @@ db.users.insert([
     username: "Adam",
     password: "$2b$10$2V5xV8o8RqC33XzUo3p9e.1s3I4/4KdoiACRVwOPUwqbfMY6nrRye",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/46.jpg",
   },
   {
     roles: {
@@ -297,6 +298,7 @@ db.users.insert([
     password: "$2b$10$VlHideUjKrYalBFh6M2QMOEbreAzWksOTNoBdeFkLsJEJgqqrP6cm",
     isAvatarImageSet: false,
     avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/22.jpg",
   },
   {
     roles: {
@@ -306,7 +308,7 @@ db.users.insert([
     username: "Tony",
     password: "$2b$10$m/Cx8rjXVzzFJJV/mbV82Oh4P35tz8K8u0iXamKm.bTOMueRsHkHK",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/women/38.jpg",
   },
   {
     roles: {
@@ -316,7 +318,7 @@ db.users.insert([
     username: "Stuart",
     password: "$2b$10$uD0EqHdY82LcUEcg679.2eq/JaA3kwIBvul.I/F55xuZaw3nPxL26",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/38.jpg",
   },
   {
     roles: {
@@ -326,7 +328,7 @@ db.users.insert([
     username: "Dani",
     password: "$2b$10$Nmfm2.QzZAGILSJgAxmTsO90wutgbIWVyvR7guybcfzBc4vNoiFyu",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/women/34.jpg",
   },
   {
     roles: {
@@ -336,7 +338,7 @@ db.users.insert([
     username: "Morgan",
     password: "$2b$10$Wdrdl7bTXlRyAPGatIaoouTooLdNNfyo7AhoSefjpx/TA5HUhqqG6",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/34.jpg",
   },
   {
     roles: {
@@ -346,7 +348,7 @@ db.users.insert([
     username: "Rhyse",
     password: "$2b$10$LDglqLSVNNNlS.xqG5edNOkgm2kl2U.rNFm53ByLnDcd1gBdtSRuK",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/53.jpg",
   },
   {
     roles: {
@@ -356,7 +358,7 @@ db.users.insert([
     username: "Scott",
     password: "$2b$10$RWbRJOTdYe8SkhE8/ZKsGu9CruTMFR2cuKmV5rcR6N77SA6efqKdq",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/33.jpg",
   },
   {
     roles: {
@@ -366,7 +368,7 @@ db.users.insert([
     username: "Jason",
     password: "$2b$10$wRZK/NwDxeGtFz.ftQlt7OId586WMewnk9hffO5T1044ZJ71E3CE.",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/23.jpg",
   },
   {
     roles: {
@@ -376,7 +378,7 @@ db.users.insert([
     username: "Aiden",
     password: "$2b$10$HMt2IN1GcL59sPiNQuHhw.xsii6jmlWez3qCQfou.JYoQukgWQxw6",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/20.jpg",
   },
   {
     roles: {
@@ -386,7 +388,7 @@ db.users.insert([
     username: "Craig",
     password: "$2b$10$ctCnD6nWHb/xUjvR4.pxI.0J4ec784oQNAHqHUvNDU/DNMbdCpJw6",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/80.jpg",
     refreshToken:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkNyYWlnIiwiaWF0IjoxNjgxNjc4Mjc5LCJleHAiOjE2ODE3NjQ2Nzl9.3O5WjcDArJHESnv58Ayoj3jfvGI_RBtfOpalPn9xPsk",
   },
@@ -399,7 +401,7 @@ db.users.insert([
     username: "Admin",
     password: "$2b$10$O/UdfV1h7cB99O7au1rFPOJHRj.j5mYmUegLfWpqg1CWufobfix3i",
     isAvatarImageSet: false,
-    avatarImage: "",
+    avatarImage: "https://randomuser.me/api/portraits/men/81.jpg",
     refreshToken:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkbWluIiwiaWF0IjoxNjgxNjgyNDg4LCJleHAiOjE2ODE3Njg4ODh9.rGOozYhlHj9rMVz2okE7bgZ0Knj1xeWlHMNVLRson6M",
   },
