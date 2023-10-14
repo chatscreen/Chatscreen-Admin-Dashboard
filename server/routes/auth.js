@@ -5,9 +5,8 @@ const verifyRoles = require("../middleware/verifyRoles");
 const { verifyAdmin } = require("../controllers/authController");
 const { handleLogin } = require("../controllers/authController");
 
-router.post("/", handleLogin);
+router.post("/", handleLogin); // log in route
 
-//router.post("/adminVerify", verifyRoles, verifyAdmin);
-router.post("/adminVerify", verifyAdmin);
+router.post("/adminVerify", verifyJWT, verifyRoles, verifyAdmin); // verify user is admin through localStorage token
 
 module.exports = router;

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
-  // in the mobile app, if the users name is already taken in a chat, there will be an option for them to choose another name
   username: {
+    // Username of the user
     type: String,
     required: true,
     min: 3,
@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
   },
   roles: {
+    // Roles assigned to the user
     User: {
       type: Number,
       default: 2001,
@@ -16,18 +17,19 @@ const userSchema = new mongoose.Schema({
     Admin: Number,
   },
   password: {
+    // Password of the user
     type: String,
     required: true,
   },
   isAvatarImageSet: {
     type: Boolean,
-    default: false,
+    default: false, // Flag indicating if the user has set an avatar image (default value: false)
   },
   avatarImage: {
     type: String,
     default: "",
-  },
-  refreshToken: String,
+  }, // URL of the user's avatar image (default value: empty string)
+  refreshToken: String, // Refresh token for authentication
   default: "",
 });
 
