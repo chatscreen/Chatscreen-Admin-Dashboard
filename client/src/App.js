@@ -43,6 +43,8 @@ const App = () => {
     isAuth();
   }, [setIsAuthenticated]);
 
+  console.log("userID from localStorage: " + localStorage.userId);
+
   return (
     <div>
       {!isAuthenticated ? (

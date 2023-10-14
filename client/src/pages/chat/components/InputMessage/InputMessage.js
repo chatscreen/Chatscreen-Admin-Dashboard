@@ -18,20 +18,19 @@ import {
 const socket = io("http://localhost:5001");
 
 socket.on("connect", () => {
-  console.log(`connected with id: ${socket.id}`);
+  console.log(`input is connected with id: ${socket.id}`);
 });
 
-const InputMessage = (props) => {
+const InputMessage = () => {
   const [message, setMessage] = useState("Default value");
 
   const ref = useRef(null);
 
   //sends the message to the server
   const handleClick = () => {
-    socket.emit("custom-event", {
-      message: message,
-      name: "Admin",
-    });
+    const text = message;
+    const sender = localStorage.userId;
+    socket.emit("custom-event", text, sender);
   };
 
   return (

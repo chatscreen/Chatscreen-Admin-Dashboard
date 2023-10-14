@@ -4,7 +4,7 @@ import Messages from "./components/Messages/Messages";
 import InputMessage from "./components/InputMessage/InputMessage";
 import { ChatContainer, ChatTitle, ChatHeader } from "./ChatElements";
 
-const Chat = () => {
+const Chat = (userInfo) => {
   //need to fetch all user data
   const [userData, setUserData] = useState([]);
 
@@ -30,7 +30,7 @@ const Chat = () => {
         <ActiveUsers users={userData} />
       </ChatHeader>
       <Messages users={userData} />
-      <InputMessage />
+      <InputMessage userinfo={userInfo} />
     </ChatContainer>
   );
 };

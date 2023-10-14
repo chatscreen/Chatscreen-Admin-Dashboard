@@ -8,8 +8,6 @@ const Users = require("../models/userModel");
 
 //authenticate a user
 
-//get user data
-
 //get all users
 const getUsers = asyncHandler(async (req, res) => {
   const users = await Users.find();

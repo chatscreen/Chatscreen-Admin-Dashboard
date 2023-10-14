@@ -20,10 +20,21 @@ import {
   AdminMessageText,
 } from "./MessageElements";
 
-//const socket = io("http://localhost:5001");
+const socket = io("http://localhost:5001");
+
+socket.on("connect", () => {
+  console.log(`input is connected with id: ${socket.id}`);
+});
 
 const Messages = ({ users }) => {
+  useEffect(() => {
+    socket.on("receive-message", () => {
+      getChat();
+    });
+  }, []);
+
   const messagesEndRef = useRef(null);
+
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({
       behavior: "smooth",
@@ -45,25 +56,11 @@ const Messages = ({ users }) => {
     fetchData();
   };
 
-  // eventually, this data recieved will be the updated chat data
-  //socket.on("recieve-message", (message) => {
-  //const fetchData = async () => {
-  //try {
-  //let response = await fetch("http://localhost:5000/chat");
-  //let data = await response.json();
-  //setMessageData(data.data);
-  //} catch (error) {
-  //console.log(error);
-  //}
-  //};
-  //fetchData();
-  //});
-
   useEffect(getChat, []);
 
   const sortedMessages = createMessagesList(users, messageData);
 
-  useEffect(scrollToBottom, [sortedMessages]);
+  useEffect(scrollToBottom, [getChat]);
 
   return (
     <MessageContainer>

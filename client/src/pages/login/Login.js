@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
@@ -45,7 +45,9 @@ const Login = ({ setAuth }) => {
 
       const parseRes = await response.json();
 
+      localStorage.setItem("userId", parseRes.userId);
       localStorage.setItem("token", parseRes.accessToken);
+
       if (parseRes.roles.includes(5150)) {
         setAuth(true);
       }

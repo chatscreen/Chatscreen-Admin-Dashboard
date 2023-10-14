@@ -45,8 +45,10 @@ const handleLogin = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
       });
 
+      let userId = foundUser._id;
+
       // Send authorization roles and access token to user
-      res.json({ roles, accessToken });
+      res.json({ roles, accessToken, userId });
     }
   } catch (error) {
     res.send(error.message);
