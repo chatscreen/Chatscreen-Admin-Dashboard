@@ -1,4 +1,3 @@
-//import { useState, useEffect } from "react";
 import {
   ChatUsers,
   UserImg,
@@ -10,7 +9,12 @@ import {
 } from "./ActiveUsersElements";
 
 const ActiveUsers = ({ users }) => {
-  console.log(users);
+  {
+    /*users is passed down all the way from App.js*/
+  }
+  {
+    /*it only renders a max of 11 of the users, so they dont take up too much space, the correct number of users is always rendered*/
+  }
   return (
     <ChatUsers style={{ display: "flex" }}>
       {users.slice(0, 11).map((user) => (

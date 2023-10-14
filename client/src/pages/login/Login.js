@@ -16,6 +16,7 @@ import {
   Alerts,
 } from "./LoginElements";
 
+// setAuth is passed down from App.js, it tells the app if the users access token is verified, or if the user just logged in
 const Login = ({ setAuth }) => {
   const [passwordInvalid, setPasswordInvalid] = useState(true);
   const [userInvalid, setUserInvalid] = useState(true);
@@ -24,12 +25,16 @@ const Login = ({ setAuth }) => {
     pwd: "",
   });
 
+  // used to submit to auth route
   const { user, pwd } = inputs;
 
+  // updated in the form onChange
   const onChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
+  // the auth route in the server is called, it takes a username and password
+  // and returns userID, user roles and acesstoken (use to log in automatically when stored in the browser)
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
@@ -45,9 +50,12 @@ const Login = ({ setAuth }) => {
 
       const parseRes = await response.json();
 
+      // when the user has logged in sucessfully, the token and userId will be stored in localStorage
+
       localStorage.setItem("userId", parseRes.userId);
       localStorage.setItem("token", parseRes.accessToken);
 
+      // if the user is not of "Admin" role, they are denied access to the dashboard
       if (parseRes.roles.includes(5150)) {
         setAuth(true);
       }

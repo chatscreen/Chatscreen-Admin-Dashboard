@@ -15,18 +15,15 @@ import {
   SendButton,
 } from "./InputMessageElements";
 
+// socket io is connected on port 5001, its used to update the client when the server is updated
 const socket = io("http://localhost:5001");
-
-socket.on("connect", () => {
-  console.log(`input is connected with id: ${socket.id}`);
-});
 
 const InputMessage = () => {
   const [message, setMessage] = useState("Default value");
 
   const ref = useRef(null);
 
-  //sends the message to the server
+  //sends the message to the server, using the 'custom-event' emit label, in the chat controller in the server you can see this referenced
   const handleClick = () => {
     const text = message;
     const sender = localStorage.userId;

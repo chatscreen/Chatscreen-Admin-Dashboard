@@ -1,6 +1,8 @@
 const createMessagesList = (users, messageData) => {
   let messagesList = [];
-  // Create a mapping object for users
+  // creates a mapping object for messages
+  // the users and the messageData are from 2 different mongodb collections, so they have to be called seperately and joined
+  // after that they are orderd by date of upload
   for (let i = 0; i < messageData.length; i++) {
     const senderId = messageData[i].sender;
     const user = users.find((user) => user._id === senderId);

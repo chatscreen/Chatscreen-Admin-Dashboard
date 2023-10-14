@@ -4,11 +4,14 @@ import Messages from "./components/Messages/Messages";
 import InputMessage from "./components/InputMessage/InputMessage";
 import { ChatContainer, ChatTitle, ChatHeader } from "./ChatElements";
 
-const Chat = (userInfo) => {
-  //need to fetch all user data
+const Chat = () => {
+  // this userData is set automatically with the below fetch request
+
   const [userData, setUserData] = useState([]);
 
-  //need to fetch all user images from server
+  //all user info from server, they are needed for both the ActiveUsers and Messages components
+  //(mostly for profile images, number of users, etc)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,6 +26,8 @@ const Chat = (userInfo) => {
     fetchData();
   }, []);
 
+  // userData from above is passed into Messages and Active users through props
+
   return (
     <ChatContainer>
       <ChatHeader>
@@ -30,17 +35,9 @@ const Chat = (userInfo) => {
         <ActiveUsers users={userData} />
       </ChatHeader>
       <Messages users={userData} />
-      <InputMessage userinfo={userInfo} />
+      <InputMessage />
     </ChatContainer>
   );
 };
 
 export default Chat;
-//return (
-//<ChatContainer>
-//<ChatHeader>
-//<ActiveUsers userData={userData}/>
-//</ChatHeader>
-//<InputMessage />
-//</ChatContainer>
-//);

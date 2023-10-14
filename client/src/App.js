@@ -24,6 +24,9 @@ const App = () => {
     setIsAuthenticated(boolean);
   };
 
+  // sends a fetch request to the server to check for a localStorage token,
+  // if a token is found isauth is set to true
+
   async function isAuth() {
     try {
       const response = await fetch("http://localhost:5000/auth/adminVerify", {
@@ -39,14 +42,16 @@ const App = () => {
     }
   }
 
+  // is auth is run whenever isAuthenticated accessed
+
   useEffect(() => {
     isAuth();
   }, [setIsAuthenticated]);
 
-  console.log("userID from localStorage: " + localStorage.userId);
-
   return (
     <div>
+      {/*a turnary option checks if user is authenticated, if not, the login page is rendered*/}
+
       {!isAuthenticated ? (
         <Login setAuth={setAuth} />
       ) : (

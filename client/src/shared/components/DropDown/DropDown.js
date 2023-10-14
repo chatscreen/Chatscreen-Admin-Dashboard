@@ -17,12 +17,11 @@ import {
   NavLink,
 } from "./DropDownElements";
 
-//const toggleDropDown = () => showInfo1(!setShowInfo1);
-
 export function InfoBox(props) {
   const ref = useRef(null);
   const { onClickOutside, setAuth } = props;
 
+  // this code needs to be updated, it makes the dropdown toggle open and close, its a bit hard to work with and messy
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -37,15 +36,15 @@ export function InfoBox(props) {
 
   if (!props.show) return null;
 
+  // when the user logs out the localStorage is wiped
   const setAuthFalse = () => {
-    // this works dont touch
     setAuth(false);
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
   };
 
   return (
     <div ref={ref} className="info-box">
-      {/*{props.message}*/}
       <DropDownList>
         <ListItem>
           <NavLink to="/profile" onClick={onClickOutside}>
