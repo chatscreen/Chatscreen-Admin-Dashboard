@@ -20,10 +20,20 @@ import {
   AdminMessageText,
 } from "./MessageElements";
 
+// socket io is connected to the server through this route
 const socket = io("http://localhost:5001");
 
-const Messages = () => {
+// users is passed down from App.js, it is referenced to pair names and images with user messages
+const Messages = ({ users }) => {
+  useEffect(() => {
+    socket.on("receive-message", () => {
+      getChat();
+    });
+  }, []);
+
   const messagesEndRef = useRef(null);
+
+  //automatically scrolls to bottom of the chat
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({
       behavior: "smooth",
@@ -32,7 +42,8 @@ const Messages = () => {
 
   const [messageData, setMessageData] = useState([]);
 
-  const getUsers = () => {
+  // get chat fetches all the messages
+  const getChat = () => {
     const fetchData = async () => {
       try {
         let response = await fetch("http://localhost:5000/chat");
@@ -45,28 +56,19 @@ const Messages = () => {
     fetchData();
   };
 
-  // eventually, this data recieved will be the updated chat data
-  socket.on("recieve-message", (message) => {
-    const fetchData = async () => {
-      try {
-        let response = await fetch("http://localhost:5000/chat");
-        let data = await response.json();
-        setMessageData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  });
+  // get chat is rendered whenever the page is rendered
+  useEffect(getChat, []);
 
-  useEffect(getUsers, []);
+  // sorted messages (imported at top of page) takes the userData and the messageData, and sorts them into messages that contain both info (incuding images and names), it then sorts them by upload date
 
-  const sortedMessages = createMessagesList(messageData);
-  // console.log(messageData);
-  useEffect(scrollToBottom, [sortedMessages]);
+  const sortedMessages = createMessagesList(users, messageData);
+
+  // scroll to bottom is triggered whenever getChat is called (whenever the page renders or the server is updated (using to socket io))
+  useEffect(scrollToBottom, [getChat]);
 
   return (
     <MessageContainer>
+      {/*if the messages name is "Admin", the message will be blue and to the right*/}
       {sortedMessages.map((message) =>
         message.name !== "Admin" ? (
           <Message key={message.timestamp}>
@@ -74,7 +76,7 @@ const Messages = () => {
             <SpeechBubble>
               <SpeechBubbleTriangle />
               <NameText>{message.name}</NameText>
-              <MessageText>{message.message.message}</MessageText>
+              <MessageText>{message.message}</MessageText>
             </SpeechBubble>
             <CountEllipsis>...</CountEllipsis>
           </Message>
@@ -85,7 +87,7 @@ const Messages = () => {
               <AdminSpeechBubble>
                 <AdminSpeechBubbleTriangle />
                 <AdminNameText>{message.name}</AdminNameText>
-                <AdminMessageText>{message.message.message}</AdminMessageText>
+                <AdminMessageText>{message.message}</AdminMessageText>
               </AdminSpeechBubble>
             </AdminMessage>
           </div>

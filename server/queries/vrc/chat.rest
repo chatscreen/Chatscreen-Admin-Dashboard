@@ -1,0 +1,20 @@
+#messages
+
+#get messages 
+http://localhost:5000
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZXMiOlsyMDAxXX0sImlhdCI6MTY4MTY4MjQ4OCwiZXhwIjoxNjgxNjg2MDg4fQ.LYloVK8Q6cBV2MLy0-AbXYW0eoyhZqDJvVOAamGZZZM 
+GET /chat
+
+#post message 
+http://localhost:5000
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZXMiOlsyMDAxXX0sImlhdCI6MTY4MTY4Mjg0NiwiZXhwIjoxNjgxNjg2NDQ2fQ.fkmyjeh730FtRL6Fv3QsDLOgwwgQakcQvHCte-MOi6Y
+POST /chat
+{
+  "text":"Hope everyone has had a great night, we will be closing soon! Last drinks!!",
+  "sender":"643c6771082d9b368ab97ae6"
+}
+

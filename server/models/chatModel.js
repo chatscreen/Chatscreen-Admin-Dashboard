@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 
+// Creating a chat schema
+
 const chatSchema = mongoose.Schema({
-  mesages: {
-    message: {
-      type: "string",
-      required: [true, "Please add a text value"],
-    },
-    timestamp: { type: "string", default: new Date().getTime() },
-  },
+  _id: { type: mongoose.Schema.Types.ObjectId, auto: true }, // Unique identifier for the chat
+  text: { type: String, required: true }, // Text of the chat message
+  sender: { type: String, required: true }, // Sender of the chat message
+  timestamp: { type: Date, default: Date.now }, // Timestamp of when the chat message was sent
 });
 
 module.exports = mongoose.model("Chat", chatSchema);

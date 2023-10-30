@@ -18,6 +18,8 @@ import {
   IconContainer,
 } from "./NavigationElements";
 
+// just a basic side menu with links to the pages, usually the location logo is stored at the top
+
 const Navigation = () => {
   return (
     <Nav>

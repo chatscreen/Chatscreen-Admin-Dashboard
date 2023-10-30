@@ -1,46 +1,49 @@
-const path = require("path");
+require("dotenv").config();
 const express = require("express");
-const dotenv = require("dotenv").config();
-const { errorHandler } = require("./middleware/errorMiddleware");
-const connectDB = require("./config/db");
-
-connectDB();
-
-const cors = require("cors");
-const bodyParser = require("body-parser");
-
-// moved this to chat controller
-
-// const io = require("socket.io")(5001, {
-//   cors: { origin: "http://localhost:3000" },
-// });
-
 const app = express();
-
+const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
+const { logger } = require("./middleware/logEvents");
+const errorHandler = require("./middleware/errorHandler");
+const cookieParser = require("cookie-parser");
+const credentials = require("./middleware/credentials");
+const mongoose = require("mongoose");
+const connectDB = require("./config/db");
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  "/images/userImages",
-  express.static(path.join("images", "userImages"))
-);
+// Connect to MongoDB
+connectDB();
 
-// io.on("connection", (socket) => {
-//   console.log(socket.id);
-//   socket.on("custom-event", (message) => {
-//     console.log(message);
-//     io.emit("recieve-message", "hi");
-//   });
-// });
+// custom middleware logger
+app.use(logger);
 
-app.use("/chat", require("./routes/chatRoutes"));
-app.use("/locations", require("./routes/locationRoutes"));
-app.use("/users", require("./routes/userRoutes"));
+// Handle options credentials check - before CORS!
+// and fetch cookies credentials requirement
+app.use(credentials);
+
+// Cross Origin Resource Sharing
+app.use(cors(corsOptions));
+
+// built-in middleware to handle urlencoded form data
+app.use(express.urlencoded({ extended: false }));
+
+// built-in middleware for json
+app.use(express.json());
+
+//middleware for cookies
+app.use(cookieParser());
+
+// routes
+app.use("/register", require("./routes/register"));
+app.use("/auth", require("./routes/auth"));
+app.use("/refresh", require("./routes/refresh"));
+app.use("/logout", require("./routes/logout"));
+app.use("/chat", require("./routes/chat"));
+app.use("/users", require("./routes/users"));
 
 app.use(errorHandler);
 
-app.listen(PORT, () =>
-  console.log(`Server Running on Port: http://localhost:${PORT}`)
-);
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB");
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});

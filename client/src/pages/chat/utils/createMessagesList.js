@@ -1,18 +1,20 @@
-const createMessagesList = (result) => {
+const createMessagesList = (users, messageData) => {
   let messagesList = [];
-  for (let i = 0; i < result.length; i++) {
-    let userName = result[i].name;
-    let profileImg = result[i].image;
-    for (let j = 0; j < result[i].mesages.length; j++) {
+  // creates a mapping object for messages
+  // the users and the messageData are from 2 different mongodb collections, so they have to be called seperately and joined
+  // after that they are orderd by date of upload
+  for (let i = 0; i < messageData.length; i++) {
+    const senderId = messageData[i].sender;
+    const user = users.find((user) => user._id === senderId);
+    if (user) {
       messagesList.push({
-        name: userName,
-        message: result[i].mesages[j],
-        timestamp: result[i].mesages[j].timestamp,
-        profileImg: profileImg,
+        name: user.username,
+        message: messageData[i].text,
+        timestamp: messageData[i].timestamp,
+        profileImg: user.avatarImage,
       });
     }
   }
-
   const sortByTime = messagesList.sort((a, b) => {
     if (b.timestamp > a.timestamp) {
       return -1;
@@ -22,5 +24,4 @@ const createMessagesList = (result) => {
   });
   return sortByTime;
 };
-
 export default createMessagesList;

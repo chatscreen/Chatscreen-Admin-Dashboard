@@ -1,0 +1,29 @@
+#authentication
+
+#register user
+http://localhost:5000
+Accept: application/json
+Content-Type: application/json
+POST /register
+{
+  "user":"Gandalf",
+  "pwd":"helloimcool"
+}
+
+#login user
+http://localhost:5000
+Accept: application/json
+Content-Type: application/json
+POST /auth
+{
+  "user":"Gandalf",
+  "pwd":"helloimcool"
+}
+
+#refresh token
+http://localhost:5000
+Accept: application/json 
+Content-Type: application/json
+Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFzaCIsImlhdCI6MTY4MTY3MDU2NiwiZXhwIjoxNjgxNzU2OTY2fQ.HtFjfbdWbmJRDUXpmCy03bNfSWMuffBhl0fNQOUhz6M
+GET /refresh
+

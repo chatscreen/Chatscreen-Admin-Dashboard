@@ -1,0 +1,8 @@
+#users
+
+#get users
+http://localhost:5000
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZXMiOlsyMDAxXX0sImlhdCI6MTY4MTY4MjQ4OCwiZXhwIjoxNjgxNjg2MDg4fQ.LYloVK8Q6cBV2MLy0-AbXYW0eoyhZqDJvVOAamGZZZM
+GET /users
