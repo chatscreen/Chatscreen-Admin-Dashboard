@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //pages
 import Chat from "./pages/chat/Chat";
 import ContentFilter from "./pages/contentFilter/ContentFilter";
+import Rewards from "./pages/rewards/Rewards";
 import QrCode from "./pages/qrCode/QrCode";
 import Profile from "./pages/profile/Profile";
 import About from "./pages/about/About";
@@ -62,6 +63,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Chat />} />
               <Route path="/contentFilter" element={<ContentFilter />} />
+              <Route path="/rewards" element={<Rewards />} />
               <Route path="/qrCode" element={<QrCode />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/about" element={<About />} />
