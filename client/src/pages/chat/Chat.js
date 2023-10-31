@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import ActiveUsers from "./components/ActiveUsers/ActiveUsers";
 import Messages from "./components/Messages/Messages";
 import InputMessage from "./components/InputMessage/InputMessage";
-import { ChatContainer, ChatTitle, ChatHeader } from "./ChatElements";
+import { ChatContainer, ChatHeader, ChatTitle } from "./ChatElements";
 
 const Chat = () => {
   // this userData is set automatically with the below fetch request

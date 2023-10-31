@@ -1,13 +1,25 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useLocation } from "react-router-dom";
+import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useLocation } from "react-router-dom"
 
 // Fontawesome icons
-import {  faBan,  faQrcode, faGear, faBullhorn, faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
-import { faStar as farStar,  faComment,faCalendar, faChartBar, faNewspaper  } from "@fortawesome/free-regular-svg-icons";
+import {
+  faBan,
+  faQrcode,
+  faGear,
+  faBullhorn,
+  faPuzzlePiece,
+} from "@fortawesome/free-solid-svg-icons"
+import {
+  faStar as farStar,
+  faComment,
+  faCalendar,
+  faChartBar,
+  faNewspaper,
+} from "@fortawesome/free-regular-svg-icons"
 
 // Logo (KFC placeholder)
-import KFC_Logo from "../../../images/ChatscreenLogo.png";
+import KFC_Logo from "../../../images/ChatscreenLogo.png"
 
 // Styled elements
 import {
@@ -18,18 +30,18 @@ import {
   NavLink,
   NavTitle,
   IconContainer,
-} from "./NavigationElements.js";
+} from "./NavigationElements.js"
 
 const Navigation = () => {
-  const location = useLocation();
-  const activeLink = location.pathname;
+  const location = useLocation()
+  const activeLink = location.pathname
 
   return (
     <Nav>
-      <Logo src={KFC_Logo} alt="logo" />
+      <Logo src={KFC_Logo} alt='logo' />
       <NavItems>
         <NavItem>
-          <NavLink to="/" className={activeLink === "/" ? "active" : ""}>
+          <NavLink to='/' className={activeLink === "/" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faComment} />
             </IconContainer>
@@ -37,7 +49,9 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/contentFilter" className={activeLink === "/contentFilter" ? "active" : ""}>
+          <NavLink
+            to='/contentFilter'
+            className={activeLink === "/contentFilter" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faBan} />
             </IconContainer>
@@ -45,7 +59,9 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/rewards" className={activeLink === "/rewards" ? "active" : ""}>
+          <NavLink
+            to='/rewards'
+            className={activeLink === "/rewards" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={farStar} />
             </IconContainer>
@@ -53,7 +69,9 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/events" className={activeLink === "/events" ? "active" : ""}>
+          <NavLink
+            to='/events'
+            className={activeLink === "/events" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faCalendar} />
             </IconContainer>
@@ -61,7 +79,9 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/polls" className={activeLink === "/polls" ? "active" : ""}>
+          <NavLink
+            to='/polls'
+            className={activeLink === "/polls" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faChartBar} />
             </IconContainer>
@@ -69,7 +89,9 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/advertisements" className={activeLink === "/advertisements" ? "active" : ""}>
+          <NavLink
+            to='/advertisements'
+            className={activeLink === "/advertisements" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faBullhorn} />
             </IconContainer>
@@ -77,15 +99,19 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/qrCode" className={activeLink === "/qrCode" ? "active" : ""}>
+          <NavLink
+            to='/qrCode'
+            className={activeLink === "/qrCode" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faQrcode} />
             </IconContainer>
             <NavTitle>QR CODE</NavTitle>
           </NavLink>
         </NavItem>
-<NavItem>
-          <NavLink to="/breaking-news" className={activeLink === "/qrCode" ? "active" : ""}>
+        <NavItem>
+          <NavLink
+            to='/breaking-news'
+            className={activeLink === "/qrCode" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faNewspaper} />
             </IconContainer>
@@ -93,8 +119,10 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
 
-<NavItem>
-          <NavLink to="/settings" className={activeLink === "/qrCode" ? "active" : ""}>
+        <NavItem>
+          <NavLink
+            to='/settings'
+            className={activeLink === "/qrCode" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faPuzzlePiece} />
             </IconContainer>
@@ -102,8 +130,10 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
 
- <NavItem>
-          <NavLink to="/settings" className={activeLink === "/qrCode" ? "active" : ""}>
+        <NavItem>
+          <NavLink
+            to='/settings'
+            className={activeLink === "/qrCode" ? "active" : ""}>
             <IconContainer>
               <FontAwesomeIcon icon={faGear} />
             </IconContainer>
@@ -111,12 +141,10 @@ const Navigation = () => {
           </NavLink>
         </NavItem>
 
-        <NavItem>
-        </NavItem>
+        <NavItem></NavItem>
       </NavItems>
     </Nav>
-  );
-};
+  )
+}
 
-export default Navigation;
-
+export default Navigation

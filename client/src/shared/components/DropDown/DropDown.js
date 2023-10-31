@@ -9,12 +9,12 @@ import LocationImage from "../../../images/BarProfile.png";
 import {
   DropDownContainer,
   DropDownHeader,
-  UserName,
-  IconContainer,
-  ProfieImage,
   DropDownList,
+  IconContainer,
   ListItem,
   NavLink,
+  ProfieImage,
+  UserName,
 } from "./DropDownElements";
 
 export function InfoBox(props) {
@@ -83,11 +83,9 @@ function Chat({ setAuth }) {
             {/* <ProfieImage src={LocationImage} /> */}
             <UserName>Settings</UserName>
             <IconContainer>
-              {showInfo1 ? (
-                <FontAwesomeIcon icon={faAngleUp}></FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
-              )}
+              {showInfo1
+                ? <FontAwesomeIcon icon={faAngleUp}></FontAwesomeIcon>
+                : <FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>}
             </IconContainer>
           </DropDownHeader>
         </DropDownContainer>

@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 
 import {
-  LoginContainer,
-  Logo,
-  LoginTitle,
-  StyledForm,
-  StyledInput,
-  StyledButton,
-  StyledAlert,
-  StyledLabel,
+  Alerts,
   Input,
   InputImage,
-  Alerts,
+  LoginContainer,
+  LoginTitle,
+  Logo,
+  StyledAlert,
+  StyledButton,
+  StyledForm,
+  StyledInput,
+  StyledLabel,
 } from "./LoginElements";
 
 // setAuth is passed down from App.js, it tells the app if the users access token is verified, or if the user just logged in
@@ -87,7 +87,8 @@ const Login = ({ setAuth }) => {
               style={{ height: "100%" }}
               icon={faUser}
               color={"#a9b0be"}
-            ></FontAwesomeIcon>
+            >
+            </FontAwesomeIcon>
           </InputImage>
         </Input>
         <Input>
@@ -103,7 +104,8 @@ const Login = ({ setAuth }) => {
               style={{ height: "100%" }}
               icon={faLock}
               color={"#a9b0be"}
-            ></FontAwesomeIcon>
+            >
+            </FontAwesomeIcon>
           </InputImage>
         </Input>
         <Alerts>

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 //pages
 import Chat from "./pages/chat/Chat";
@@ -53,9 +53,7 @@ const App = () => {
     <div>
       {/*a turnary option checks if user is authenticated, if not, the login page is rendered*/}
 
-      {!isAuthenticated ? (
-        <Login setAuth={setAuth} />
-      ) : (
+      {!isAuthenticated ? <Login setAuth={setAuth} /> : (
         <Router>
           <Navigation />
           <DropDown setAuth={setAuth} />

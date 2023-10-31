@@ -1,11 +1,11 @@
 import {
   ChatUsers,
-  UserImg,
-  ViewAllContainer,
-  UserCount,
-  CountNumber,
   CountEllipsis,
+  CountNumber,
+  UserCount,
+  UserImg,
   ViewAll,
+  ViewAllContainer,
 } from "./ActiveUsersElements";
 
 const ActiveUsers = ({ users }) => {
