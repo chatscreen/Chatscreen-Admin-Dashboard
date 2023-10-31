@@ -1,11 +1,12 @@
 import styled from "styled-components"
 
 export const MessageContainer = styled.div`
+  padding-left: 7rem;
   background: #f5f6f7;
-  height: 80vh;
+  height: 77vh;
   overflow-y: auto;
   --scrollbar-width: 8px;
-  --mask-height: 32px;
+  --mask-height: 70px;
   padding-bottom: var(--mask-height);
   --mask-image-content: linear-gradient(
     to bottom,
@@ -35,15 +36,14 @@ export const AdminMessage = styled.div`
   padding-top: 8px;
   display: flex;
   position: relative;
-  right: -470px;
+  right: -500px;
 `
 export const UserImage = styled.img`
   height: 58px;
   width: 58px;
   border-radius: 50%;
-  margin-left: 30px;
   box-sizing: border-box;
-  box-shadow: 2.5px 2.5px 2.5px #d8d8d8;
+  box-shadow: 0px 4px 0.3rem #ababab;
 `
 
 export const SpeechBubble = styled.div`
@@ -54,10 +54,9 @@ export const SpeechBubble = styled.div`
   color: #20242c;
   position: relative;
   border-radius: 5px;
-  border: 2px solid #e5e5e5;
   border-radius: 5px;
   box-sizing: border-box;
-  box-shadow: 2.5px 2.5px 2.5px #d8d8d8;
+  box-shadow: 0px 3px 0.4rem #ababab;
   font-size: 1rem;
   font-weight: light;
 `
@@ -70,24 +69,18 @@ export const AdminSpeechBubble = styled.div`
   color: #fff;
   position: relative;
   border-radius: 5px;
-  border: 2px solid #e5e5e5;
-  border-radius: 5px;
-  box-shadow: 2.5px 2.5px 2.5px #d8d8d8;
+  box-shadow: 0px 3px .4rem #ABABAB;
   font-size: 1rem;
+  font-weight: light;
   }
 `
 export const SpeechBubbleTriangle = styled.div`
   height: 16px;
-  background: #fff;
+  background: #ffff;
   transform: skewX(40deg);
   position: relative;
-  right: 25px;
-  margin-top: -2px;
+  left: -22px;
   z-index: 3;
-  border-top: 2px solid #e5e5e5;
-  border-left: 2px solid #e5e5e5;
-  font-size: 1rem;
-  font-weight: light;
 `
 
 export const AdminSpeechBubbleTriangle = styled.div`
@@ -95,16 +88,13 @@ export const AdminSpeechBubbleTriangle = styled.div`
   background: #5f6fee;
   transform: skewX(-40deg);
   position: relative;
-  left: 25px;
-  margin-top: -2px;
+  left: 22px;
   z-index: 3;
-  border-top: 2px solid #e5e5e5;
-  border-right: 2px solid #e5e5e5;
 `
 
 export const NameText = styled.h3`
   font-size: 1rem;
-  padding: 0px;
+  padding-bottom: 0.5rem;
   margin: 0px;
   color: #5f6fee;
   font-weight: bold;
@@ -124,7 +114,7 @@ export const AdminMessageText = styled.p`
 
 export const AdminNameText = styled.h3`
   font-size: 1rem;
-  padding: 0px;
+  padding-bottom: 0.5rem;
   margin: 0px;
   color: #fff;
   font-weight: bold;
@@ -135,6 +125,9 @@ export const CountEllipsis = styled.h1`
   letter-spacing: 4px;
   font-weight: bold;
   color: #4a4a4a;
-  margin-top: 12px;
+  margin-top: 3rem;
   padding: 0px;
+`
+export const LikeCount = styled.div`
+  margin-top: 0.5rem;
 `

@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import { io } from "socket.io-client"
 
 import createMessagesList from "../../utils/createMessagesList"
+// Fontawesome icons
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { faHeart as hollowHeart } from "@fortawesome/free-regular-svg-icons"
 
 import {
   AdminMessage,
@@ -11,6 +15,7 @@ import {
   AdminSpeechBubble,
   AdminSpeechBubbleTriangle,
   CountEllipsis,
+  LikeCount,
   Message,
   MessageContainer,
   MessageText,
@@ -78,11 +83,17 @@ const Messages = ({ users }) => {
               <NameText>{message.name}</NameText>
               <MessageText>{message.message}</MessageText>
             </SpeechBubble>
+            <LikeCount>
+              <FontAwesomeIcon style={{ height: "28%" }} icon={faHeart} />
+            </LikeCount>
             <CountEllipsis>...</CountEllipsis>
           </Message>
         ) : (
           <div key={message.timestamp}>
             <AdminMessage>
+              <LikeCount>
+                <FontAwesomeIcon style={{ height: "28%" }} icon={hollowHeart} />
+              </LikeCount>
               <CountEllipsis>...</CountEllipsis>
               <AdminSpeechBubble>
                 <AdminSpeechBubbleTriangle />

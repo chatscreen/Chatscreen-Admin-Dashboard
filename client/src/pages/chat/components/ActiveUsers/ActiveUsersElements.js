@@ -1,12 +1,15 @@
 import styled from "styled-components"
 
-export const ChatUsers = styled.nav``
+export const ChatUsers = styled.nav`
+  padding-left: 2rem;
+`
 
 export const UserImg = styled.img`
   height: 40px;
   width: 40px;
   border-radius: 50%;
   margin-right: 14px;
+  box-shadow: 0px 4px 0.3rem #ababab;
 `
 
 export const ViewAllContainer = styled.nav`

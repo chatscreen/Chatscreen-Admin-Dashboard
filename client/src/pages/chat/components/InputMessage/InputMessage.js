@@ -37,7 +37,7 @@ const InputMessage = () => {
     <InputContainer>
       <Input>
         <Emojis>
-          <FontAwesomeIcon icon={faFaceSmile} />
+          <FontAwesomeIcon style={{ height: "70%" }} icon={faFaceSmile} />
         </Emojis>
         <InputText
           ref={ref}

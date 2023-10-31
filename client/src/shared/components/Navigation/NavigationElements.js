@@ -2,9 +2,9 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 export const Nav = styled.nav`
-  background: #fff;
+  background: #ffff;
   height: 100vh;
-  min-width: 17%;
+  min-width: 13rem;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -17,7 +17,7 @@ export const Nav = styled.nav`
 `
 
 export const Logo = styled.img`
-  width: 285px;
+  width: 18.7rem;
   margin: auto;
 `
 

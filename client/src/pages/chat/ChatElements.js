@@ -7,8 +7,9 @@ export const ChatHeader = styled.nav`
 `
 
 export const ChatTitle = styled.h1`
-  font-size: 45px;
+  padding-left: 2rem;
+  font-size: 3rem;
   font-family: Roboto, Arial, sans-serif;
-  font-weight: 300;
-  padding-bottom: 10px;
+  font-weight: 400;
+  padding-bottom: 0.4rem;
 `
